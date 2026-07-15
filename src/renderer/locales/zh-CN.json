@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "PortWarden",
+    "subtitle": "本机服务守卫",
+    "search": "搜索端口、进程或命令...",
+    "refresh": "刷新",
+    "autoRefresh": "自动刷新",
+    "lightTheme": "浅色",
+    "darkTheme": "深色",
+    "listeningPorts": "监听中的 TCP 端口",
+    "matchedServices": "{count} 个匹配服务",
+    "stopProcess": "停止进程",
+    "confirmStopTitle": "停止进程 {pid}？",
+    "confirmStopContent": "这会终止 {name} 并释放端口 {port}。该操作不会自动提权。",
+    "cancel": "取消",
+    "confirm": "确认停止",
+    "forceStop": "强制停止",
+    "forceStopRequiredTitle": "需要强制停止",
+    "forceStopRequiredContent": "Windows 拒绝普通结束该进程。强制停止可能导致未保存状态丢失，请确认它不是关键系统服务。",
+    "noResults": "没有匹配端口",
+    "scanFailed": "扫描失败",
+    "scanComplete": "扫描完成",
+    "copied": "已复制",
+    "opened": "已打开",
+    "favorite": "收藏",
+    "unfavorite": "取消收藏"
+  },
+  "common": {
+    "unavailable": "不可用",
+    "pathUnavailable": "路径不可用",
+    "unknown": "未知",
+    "nothingToCopy": "暂无可复制内容"
+  },
+  "nav": {
+    "all": "全部",
+    "devServers": "开发服务",
+    "web": "Web",
+    "databases": "数据库",
+    "favorites": "收藏",
+    "ignored": "已忽略",
+    "settings": "设置",
+    "about": "关于 PortWarden"
+  },
+  "table": {
+    "port": "端口",
+    "protocol": "协议",
+    "address": "地址",
+    "service": "服务",
+    "process": "进程",
+    "pid": "PID",
+    "status": "状态",
+    "actions": "操作"
+  },
+  "details": {
+    "serviceSummary": "服务概览",
+    "processInfo": "进程信息",
+    "resourceUsage": "资源占用",
+    "riskAssessment": "风险评估",
+    "serviceType": "服务类型",
+    "uptime": "发现时间",
+    "command": "命令",
+    "executable": "可执行文件",
+    "riskLevel": "风险等级",
+    "detectedAs": "识别为",
+    "memory": "内存",
+    "cpu": "CPU"
+  },
+  "filters": {
+    "all": "全部",
+    "listening": "监听中",
+    "http": "HTTP",
+    "risk": "有风险"
+  },
+  "settings": {
+    "title": "设置",
+    "theme": "主题",
+    "themeDescription": "默认跟随系统，也可以固定为浅色或深色。",
+    "system": "跟随系统",
+    "autoRefreshDescription": "后台扫描时刷新按钮会显示加载状态。"
+  },
+  "about": {
+    "description": "PortWarden 用于发现、查看和安全管理本机端口、进程与开发服务。",
+    "scope": "当前版本优先支持 Windows TCP Listening 端口扫描。"
+  },
+  "actions": {
+    "open": "打开",
+    "copy": "复制",
+    "reveal": "打开路径",
+    "ignore": "忽略",
+    "unignore": "取消忽略",
+    "stop": "停止进程"
+  },
+  "serviceType": {
+    "dev_server": "开发服务",
+    "database": "数据库",
+    "web": "Web",
+    "dev_tools": "开发工具",
+    "service": "本机服务"
+  },
+  "framework": {
+    "localService": "本机服务"
+  },
+  "risk": {
+    "low": "低",
+    "medium": "中",
+    "high": "高"
+  },
+  "riskNote": {
+    "localOnly": "仅绑定到本机地址，外部网络通常不可直接访问。",
+    "reviewExposure": "请检查绑定地址、网络暴露范围和依赖服务。"
+  }
+}

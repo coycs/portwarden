@@ -1,0 +1,77 @@
+{
+  "name": "portwarden",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Discover, inspect, and safely manage local ports, processes, and development servers.",
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "vue-tsc --noEmit && electron-vite build",
+    "check": "vp check",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "test": "vitest run",
+    "package:win": "pnpm build && electron-builder --win portable",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@tanstack/vue-table": "^8.21.3",
+    "@vicons/ionicons5": "^0.13.0",
+    "echarts": "^6.0.0",
+    "naive-ui": "^2.43.1",
+    "vue": "^3.5.22",
+    "vue-echarts": "^8.0.1",
+    "vue-i18n": "^11.1.12"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@types/node": "^26.1.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "electron": "^38.3.0",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "husky": "^9.1.7",
+    "sass": "^1.93.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vite-plus": "^0.2.4",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.3.7"
+  },
+  "packageManager": "pnpm@10.0.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "electron",
+      "electron-winstaller",
+      "esbuild"
+    ]
+  },
+  "build": {
+    "appId": "dev.portwarden.app",
+    "productName": "PortWarden",
+    "artifactName": "${productName}-${version}-portable.${ext}",
+    "directories": {
+      "output": "release"
+    },
+    "extraResources": [
+      {
+        "from": "build/icon.png",
+        "to": "icon.png"
+      }
+    ],
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "portable"
+      ]
+    }
+  }
+}

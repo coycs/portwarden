@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "PortWarden",
+    "subtitle": "Local service watch",
+    "search": "Search ports, processes, or commands...",
+    "refresh": "Refresh",
+    "autoRefresh": "Auto-refresh",
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "listeningPorts": "Listening TCP Ports",
+    "matchedServices": "{count} matched services",
+    "stopProcess": "Stop Process",
+    "confirmStopTitle": "Stop process {pid}?",
+    "confirmStopContent": "This will terminate {name} and release port {port}. It will not elevate privileges.",
+    "cancel": "Cancel",
+    "confirm": "Stop Process",
+    "forceStop": "Force Stop",
+    "forceStopRequiredTitle": "Force stop required",
+    "forceStopRequiredContent": "Windows refused the normal stop request. Force stopping may discard unsaved state; make sure this is not a critical system service.",
+    "noResults": "No matching ports",
+    "scanFailed": "Scan failed",
+    "scanComplete": "Scan complete",
+    "copied": "Copied",
+    "opened": "Opened",
+    "favorite": "Favorite",
+    "unfavorite": "Unfavorite"
+  },
+  "common": {
+    "unavailable": "Unavailable",
+    "pathUnavailable": "Path unavailable",
+    "unknown": "Unknown",
+    "nothingToCopy": "Nothing to copy"
+  },
+  "nav": {
+    "all": "All",
+    "devServers": "Dev Servers",
+    "web": "Web",
+    "databases": "Databases",
+    "favorites": "Favorites",
+    "ignored": "Ignored",
+    "settings": "Settings",
+    "about": "About PortWarden"
+  },
+  "table": {
+    "port": "Port",
+    "protocol": "Protocol",
+    "address": "Address",
+    "service": "Service",
+    "process": "Process",
+    "pid": "PID",
+    "status": "Status",
+    "actions": "Actions"
+  },
+  "details": {
+    "serviceSummary": "Service Summary",
+    "processInfo": "Process Information",
+    "resourceUsage": "Resource Usage",
+    "riskAssessment": "Risk Assessment",
+    "serviceType": "Service Type",
+    "uptime": "Detected",
+    "command": "Command",
+    "executable": "Executable",
+    "riskLevel": "Risk Level",
+    "detectedAs": "Detected As",
+    "memory": "Memory",
+    "cpu": "CPU"
+  },
+  "filters": {
+    "all": "All",
+    "listening": "Listening",
+    "http": "HTTP",
+    "risk": "Risk"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "themeDescription": "Follow system by default, or pin light or dark mode.",
+    "system": "System",
+    "autoRefreshDescription": "The refresh button shows loading while background scans are running."
+  },
+  "about": {
+    "description": "PortWarden helps discover, inspect, and safely manage local ports, processes, and development services.",
+    "scope": "The current version focuses on Windows TCP Listening port scanning."
+  },
+  "actions": {
+    "open": "Open",
+    "copy": "Copy",
+    "reveal": "Reveal path",
+    "ignore": "Ignore",
+    "unignore": "Unignore",
+    "stop": "Stop process"
+  },
+  "serviceType": {
+    "dev_server": "Dev Server",
+    "database": "Database",
+    "web": "Web",
+    "dev_tools": "Dev Tools",
+    "service": "Service"
+  },
+  "framework": {
+    "localService": "Local Service"
+  },
+  "risk": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "riskNote": {
+    "localOnly": "Bound to localhost only; external networks usually cannot reach it directly.",
+    "reviewExposure": "Review the bind address, network exposure, and dependent services."
+  }
+}
