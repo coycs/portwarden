@@ -1,112 +1,114 @@
 # PortWarden
 
-![PortWarden 横幅头图](docs/images/portwarden-hero-banner.png)
+English | [简体中文](README.zh-CN.md)
 
-PortWarden 是一款面向开发者的 Windows 桌面应用，用于发现、查看和管理本机正在监听的 TCP 端口、关联进程与本地开发服务。
+![PortWarden hero banner](docs/images/portwarden-hero-banner.png)
 
-当前版本聚焦 Windows 本机开发场景，仅扫描 TCP Listening 端口，并依赖 PowerShell 7 的 `pwsh`。
+PortWarden is a Windows desktop app for developers to discover, inspect, and manage local TCP listening ports, related processes, and development services.
 
-## 界面预览
+The current version focuses on local Windows development. It scans TCP Listening ports only and requires PowerShell 7 through `pwsh`.
 
-浅色主题：
+## Preview
 
-![PortWarden 浅色主题界面](docs/images/portwarden-light-theme.png)
+Light theme:
 
-深色主题：
+![PortWarden light theme](docs/images/portwarden-light-theme.png)
 
-![PortWarden 深色主题界面](docs/images/portwarden-dark-theme.png)
+Dark theme:
 
-## 功能
+![PortWarden dark theme](docs/images/portwarden-dark-theme.png)
 
-- 查看本机监听端口、地址、PID、进程名、命令行和可执行文件路径。
-- 识别常见本地服务，例如 Vite、Next.js、Webpack、Node.js、FastAPI、Spring Boot、PostgreSQL 和 Redis。
-- 基于绑定地址和服务类型提示风险等级。
-- 支持搜索、筛选、排序、收藏、忽略和自动刷新。
-- 支持打开本地 HTTP 地址、复制文本、打开可执行文件路径。
-- 支持结束进程；需要强制结束时会二次确认。
-- 默认脱敏命令行中的常见敏感字段。
-- 支持浅色、深色和跟随系统主题。
+## Features
 
-## 要求
+- Inspect local listening ports, addresses, PIDs, process names, command lines, and executable paths.
+- Detect common local services such as Vite, Next.js, Webpack, Node.js, FastAPI, Spring Boot, PostgreSQL, and Redis.
+- Show risk levels based on bind addresses and service types.
+- Search, filter, sort, favorite, ignore, and auto-refresh ports.
+- Open local HTTP addresses, copy text, and reveal executable paths.
+- Stop processes, with a second confirmation when force termination is required.
+- Mask common sensitive fields in command lines by default.
+- Support light, dark, and system color themes.
+
+## Requirements
 
 - Windows 10/11
-- PowerShell 7.x，且 `pwsh` 在 `PATH` 中可用
+- PowerShell 7.x, with `pwsh` available in `PATH`
 - Node.js LTS
 - pnpm 10
 
-检查 PowerShell：
+Check PowerShell:
 
 ```powershell
 pwsh -NoLogo -NoProfile -Command "$PSVersionTable.PSVersion"
 ```
 
-## 开发
+## Development
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-常用命令：
+Common commands:
 
-| 命令                | 用途                       |
-| ------------------- | -------------------------- |
-| `pnpm dev`          | 启动开发环境               |
-| `pnpm check`        | 格式、lint 和类型检查      |
-| `pnpm format`       | 格式化代码                 |
-| `pnpm format:check` | 检查格式化状态             |
-| `pnpm test`         | 运行单元测试               |
-| `pnpm build`        | 构建应用                   |
-| `pnpm package:win`  | 构建 Windows portable 版本 |
+| Command             | Purpose                            |
+| ------------------- | ---------------------------------- |
+| `pnpm dev`          | Start the development environment  |
+| `pnpm check`        | Run format, lint, and type checks  |
+| `pnpm format`       | Format code                        |
+| `pnpm format:check` | Check formatting status            |
+| `pnpm test`         | Run unit tests                     |
+| `pnpm build`        | Build the app                      |
+| `pnpm package:win`  | Build the Windows portable package |
 
-## 打包
+## Packaging
 
 ```bash
 pnpm package:win
 ```
 
-产物输出到 `release/`：
+Build artifacts are written to `release/`:
 
 ```text
 release/PortWarden-<version>-portable.exe
 ```
 
-例如当前版本：
+For the current version:
 
 ```text
 PortWarden-0.1.0-portable.exe
 ```
 
-Portable 版本无需安装即可运行，但目标机器仍需要安装 PowerShell 7。
+The portable package runs without installation, but the target machine still needs PowerShell 7.
 
-## 项目结构
+## Project Structure
 
 ```text
 src/
-  main/       Electron 主进程、端口扫描、进程操作、偏好读写
-  preload/    Renderer 可访问的白名单 IPC API
-  renderer/   Vue 3 桌面界面
-  shared/     共享类型、脱敏逻辑、服务识别规则
-tests/        单元测试
+  main/       Electron main process, port scanning, process actions, preferences
+  preload/    Allowlisted IPC API exposed to the renderer
+  renderer/   Vue 3 desktop UI
+  shared/     Shared types, sanitization logic, service detection rules
+tests/        Unit tests
 ```
 
-## 本地数据
+## Local Data
 
-用户偏好保存到 Electron 的 `userData/preferences.json`，包括自动刷新、刷新间隔、语言和主题模式。
+User preferences are saved to Electron's `userData/preferences.json`, including auto-refresh, refresh interval, language, and theme mode.
 
-收藏和忽略列表目前只保存在当前应用会话中，重启后不会保留。
+Favorites and ignored items are currently stored only in the current app session and are not persisted after restart.
 
-## 限制
+## Limitations
 
-- 仅支持 Windows。
-- 仅扫描 TCP Listening 端口。
-- 不扫描 UDP。
-- 不自动提权，部分进程信息可能不可见。
-- 服务识别和风险提示基于启发式规则，可能存在误判。
+- Windows only.
+- Scans TCP Listening ports only.
+- Does not scan UDP.
+- Does not elevate privileges automatically, so some process details may be unavailable.
+- Service detection and risk hints are heuristic and may produce false positives or false negatives.
 
-## 变更日志
+## Changelog
 
-版本记录见 [CHANGELOG.md](CHANGELOG.md)。
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 
