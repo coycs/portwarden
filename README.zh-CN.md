@@ -108,7 +108,7 @@ tests/        单元测试
 
 ## 变更日志
 
-版本记录见 [CHANGELOG.md](CHANGELOG.md)。
+版本记录见 [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md)。
 
 ## 许可证
 
