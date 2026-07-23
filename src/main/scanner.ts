@@ -44,9 +44,17 @@ $connections = @(Get-NetTCPConnection -State Listen | ForEach-Object {
 })
 $pids = @($connections | Select-Object -ExpandProperty OwningProcess -Unique | Where-Object { $_ -gt 0 })
 $processes = @()
-foreach ($processId in $pids) {
-  $cim = Get-CimInstance Win32_Process -Filter "ProcessId=$processId" -ErrorAction SilentlyContinue
-  $gp = Get-Process -Id $processId -ErrorAction SilentlyContinue
+$pidLookup = [System.Collections.Generic.HashSet[int]]::new([int[]]$pids)
+$runtimeProcesses = @{}
+Get-Process -Id $pids -ErrorAction SilentlyContinue | ForEach-Object {
+  $runtimeProcesses[[int]$_.Id] = $_
+}
+$cimProcesses = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
+  $pidLookup.Contains([int]$_.ProcessId)
+})
+foreach ($cim in $cimProcesses) {
+  $processId = [int]$cim.ProcessId
+  $gp = $runtimeProcesses[$processId]
   if ($cim -ne $null) {
     $processes += [PSCustomObject]@{
       ProcessId = [int]$processId

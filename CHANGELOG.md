@@ -6,6 +6,13 @@ This file records notable changes to PortWarden.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and version numbers follow the spirit of Semantic Versioning.
 
+## [0.1.1] - 2026-07-23
+
+### Fixed
+
+- Fixed packaged-app port scans by passing PowerShell scripts through UTF-16LE `-EncodedCommand`, preventing Windows command-line parsing from altering special PowerShell syntax.
+- Improved first-scan reliability by querying process metadata in bulk and increasing the scan timeout from 15 to 30 seconds.
+
 ## [0.1.0] - 2026-07-15
 
 ### Added

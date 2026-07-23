@@ -76,7 +76,7 @@ release/PortWarden-<version>-portable.exe
 For the current version:
 
 ```text
-PortWarden-0.1.0-portable.exe
+PortWarden-0.1.1-portable.exe
 ```
 
 The portable package runs without installation, but the target machine still needs PowerShell 7.

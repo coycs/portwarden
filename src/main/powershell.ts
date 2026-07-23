@@ -25,13 +25,25 @@ export async function assertPowerShell7(): Promise<void> {
 export async function runPowerShellJson<T>(script: string): Promise<T> {
   await assertPowerShell7();
 
+  // Passing a complete PowerShell program through a plain Windows command-line
+  // argument is fragile once the app is packaged. EncodedCommand avoids any
+  // quoting or special-character rewriting by the executable launcher.
+  const encodedScript = Buffer.from(script, "utf16le").toString("base64");
   const { stdout } = await execFileAsync(
     "pwsh",
-    ["-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", script],
+    [
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-EncodedCommand",
+      encodedScript,
+    ],
     {
       windowsHide: true,
       maxBuffer: 1024 * 1024 * 8,
-      timeout: 15000,
+      timeout: 30000,
     },
   );
 

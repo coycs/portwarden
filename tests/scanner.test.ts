@@ -4,7 +4,12 @@ import { normalizeScan, SCAN_SCRIPT } from "../src/main/scanner";
 describe("normalizeScan", () => {
   it("does not overwrite PowerShell's built-in PID variable", () => {
     expect(SCAN_SCRIPT).not.toContain("foreach ($pid in");
-    expect(SCAN_SCRIPT).toContain("foreach ($processId in");
+    expect(SCAN_SCRIPT).toContain("$processId = [int]$cim.ProcessId");
+  });
+
+  it("queries process metadata in bulk", () => {
+    expect(SCAN_SCRIPT).toContain("Get-CimInstance Win32_Process -ErrorAction SilentlyContinue");
+    expect(SCAN_SCRIPT).not.toContain('-Filter "ProcessId=$processId"');
   });
 
   it("maps PowerShell scan output into port/process records", () => {

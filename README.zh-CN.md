@@ -76,7 +76,7 @@ release/PortWarden-<version>-portable.exe
 例如当前版本：
 
 ```text
-PortWarden-0.1.0-portable.exe
+PortWarden-0.1.1-portable.exe
 ```
 
 Portable 版本无需安装即可运行，但目标机器仍需要安装 PowerShell 7。

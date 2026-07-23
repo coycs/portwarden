@@ -896,7 +896,7 @@ function renderIcon(icon: unknown) {
             <section class="about-panel">
               <div class="about-brand">
                 <img :src="portwardenLogoUrl" alt="" />
-                <strong>PortWarden 0.1.0</strong>
+                <strong>PortWarden 0.1.1</strong>
               </div>
               <p>{{ t("about.description") }}</p>
               <p>{{ t("about.scope") }}</p>

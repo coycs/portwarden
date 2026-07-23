@@ -1,6 +1,6 @@
 {
   "name": "portwarden",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Discover, inspect, and safely manage local ports, processes, and development servers.",
   "type": "module",

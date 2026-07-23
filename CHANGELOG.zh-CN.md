@@ -6,6 +6,13 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循语义化版本思路。
 
+## [0.1.1] - 2026-07-23
+
+### Fixed
+
+- 修复打包应用无法扫描端口的问题：通过 UTF-16LE `-EncodedCommand` 传递 PowerShell 脚本，避免 Windows 命令行解析改变 PowerShell 特殊语法。
+- 提升首次扫描稳定性：批量查询进程元数据，并将扫描超时从 15 秒调整为 30 秒。
+
 ## [0.1.0] - 2026-07-15
 
 ### Added
